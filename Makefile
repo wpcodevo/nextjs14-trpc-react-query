@@ -16,3 +16,4 @@ install-dependencies:
 
 commands:
 	pnpm prisma init --datasource-provider postgresql
+	pnpm prisma migrate dev --name init
