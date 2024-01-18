@@ -1,5 +1,5 @@
 import userRouter from '@/server/user-route';
-import { t } from '@/utils/create-router';
+import { t } from '@/utils/trpc-server';
 import { createServerSideHelpers } from '@trpc/react-query/server';
 import SuperJSON from 'superjson';
 
