@@ -1,11 +1,12 @@
 import { initTRPC } from '@trpc/server';
 import superjson from 'superjson';
+import userRouter from '@/server/user-route';
 
-const t = initTRPC.create({
+export const t = initTRPC.create({
   transformer: superjson,
 });
 
-export const appRouter = t.router({
+const healthCheckerRouter = t.router({
   healthchecker: t.procedure.query(({ ctx }) => {
     return {
       status: 'success',
@@ -13,5 +14,7 @@ export const appRouter = t.router({
     };
   }),
 });
+
+export const appRouter = t.mergeRouters(userRouter, healthCheckerRouter);
 
 export type AppRouter = typeof appRouter;
