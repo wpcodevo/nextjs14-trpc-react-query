@@ -1,10 +1,5 @@
-import { initTRPC } from '@trpc/server';
-import superjson from 'superjson';
 import userRouter from '@/server/user-route';
-
-export const t = initTRPC.create({
-  transformer: superjson,
-});
+import { t } from '@/utils/create-router';
 
 const healthCheckerRouter = t.router({
   healthchecker: t.procedure.query(({ ctx }) => {

@@ -1,15 +1,15 @@
 'use client';
 
-import { trpc } from '@/utils/trpc';
+import UserForm from '@/components/user-form';
+import ListUsers from '@/components/list-user';
 
 export default function Home() {
-  let { data, isLoading, isFetching } = trpc.healthchecker.useQuery();
-  if (isLoading || isFetching) return <p>Loading...</p>;
-
   return (
-    <div className='text-xl font-bold'>
-      <h1>Status: {data?.status}</h1>
-      <h1>Message: {data?.message}</h1>
-    </div>
+    <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
+      <div className='w-full flex justify-center mb-8'>
+        <UserForm />
+      </div>
+      <ListUsers />
+    </main>
   );
 }
